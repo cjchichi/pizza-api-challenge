@@ -7,7 +7,7 @@ class Restaurant(db.Model):
     name = db.Column(db.String, nullable=False)
     address = db.Column(db.String, nullable=False)
 
-    restaurant_pizzas = db.relationship('RestaurantPizza', backref='restaurant', cascade='all, delete-orphan', lazy=True)
+    restaurant_pizzas = db.relationship('RestaurantPizza', back_populates='restaurant', cascade='all, delete-orphan', lazy=True)
 
     def __repr__(self):
         return f"<Restaurant {self.id}, {self.name}, {self.address}>"
